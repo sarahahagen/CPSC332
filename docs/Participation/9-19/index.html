@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9-19 Participation (Fake form)</title>
+</head>
+<body>
+    <h1>Hello, World! New web page, who is this?</h1>
+    <img src="https://i.kym-cdn.com/photos/images/facebook/000/000/601/C6QJPRHW4QF6KFDP7XJNW24TNDI4YNF2.jpg" alt="Picture of icee, what you did there">
+
+    <!--reminder: no method attribute specified, so it's GET-->
+    <form action="submission.html">
+        <p>
+            <label for="first">First Name:</label>
+            <!--Name used to build the query string-->
+            <input value="Default Value" type="text" id="first" name="first" placeholder="FIRST name only please">
+        </p>
+
+        <p>
+            <label for="last">Last Name:</label>
+            <!--Name used to build the query string-->
+            <input type="text" id="last" name="last" placeholder="LAST name only please">
+        </p>
+
+        <p>
+            <label for="area">Tell me a story...</label>
+            <!--Name used to build the query string-->
+            <textarea id="area" name="area" rows="5" placeholder="Enter multi line text here"> </textarea>
+        </p>
+
+        <p>
+            <label for="password">Password:</label>
+            <!--Name used to build the query string-->
+            <input type="password" id="password" name="password" placeholder="Enter password here"> </textarea>
+        </p>
+
+        <p>
+            <label for="languages">Choose a language:</label>
+            <select name="languages" id="languages">
+                <option value="c/c++">C/C++</option>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="c#">C#</option>
+                <option value="ruby">Ruby</option>
+                <option value="kotlin">Kotlin</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="checks">Check if you like this webpage:</label>
+            <!--Name used to build the query string-->
+            <input type="checkbox" id="check" name="check" checked> </textarea>
+        </p>
+        
+        <input type="submit" value="Submit Form Data">
+    </form>
+</body>
+</html>

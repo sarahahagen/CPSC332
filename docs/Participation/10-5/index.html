@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript 1 Demo</title>
 
-    <!--Onload is a once thing and is needed!-->
+    <!--Onload is a once thing and is needed! It waits until webpage is fully rendered-->
     <!--Similar to C++-->
     <!--var and let are different (scope), let is recommened for local variables (like C++)-->
     <!--var acts differently here than in C++-->
@@ -15,10 +15,17 @@
         window.onload = function() {
             // variable declaration
             var myInt = 42;
+            // prefer this!
             let myOtherInt = 9001;
+
+            // global scope (not declaring type)
+            // AVOID THIS
             anotherInt = 9000;
+
+            // overrides the above global scope
+            window.location
             
-            //alert("I'm annoying")
+            // alert("I'm annoying")
 
             // constant
             const PI = 3.14159;
@@ -29,20 +36,88 @@
 
             let myFriend = true;
             let myArray = [3, "hi", 3.14, "world"];
+            // undefined
             let myVar;
             let myOtherVar = null;
             /*
 
             */
             // best practice, don't use alerts!
-            //alert("I'm more annoying")
+            // alert("I'm more annoying")
 
             console.log("this is a console message");
+            //let response = prompt("Do you want to play a game?")
+            //alert("You said: " + response);
+
+            if (true) {
+                // out of scope
+                // var y = 42;
+
+                // not out of scope
+                // recommended way to declare a variable
+                let y = 42;
+            }
+
+            //console.log(y);
+            
+            // be careful with dynamic typing
+            let number = 2
+            let aString = "2";
+
+            // 4
+            console.log(number + 2);
+            // 22
+            console.log(number + "2");
+
+            console.log(number + parseInt(aString));
+
+            // identity: same data type AND same data value
+            // note: 2 === 2.0
+            if (number === 10) {
+
+            }
+
+            // non-identity (opposite of identity)
+            if (number !== 10) {
+
+            }
+
+            if (NaN) {
+
+            }
+
+            if (undefined) {
+
+            }
+
+            if (null) {
+
+            }
+
+            // loops are the same as C++ (let instead of int)
+            for (let index = 0; index < array.length; index++) {
+            }
+
+            do {
+                
+            } while (condition);
+
+            // be careful with ordering
+            // if no return statement, returns undefined
+            function name(params) {
+                // can return
+                return 9001;
+            }
+            let myResult = name(params);
+
+            let arrowAdd2 = (x, y, z) => x + 2;
+            arrowAdd2(40, 1, 2);
         }
     </script>
 </head>
+
 <body>
-    <h1>JavaScript, Yay!</h1>
+    <h1>JavaScript, Yay!!</h1>
     <ol type="a">
         <li>I am not that familiar with JavaScript.</li>
         <li>I found surprising that semicolons are optional and mixing different types with arrays is okay.</li>

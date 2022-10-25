@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Submission Page</title>
+
+    <style>
+        table,
+        th {
+            border: 1px solid black;
+
+        }
+        table {
+            border-color: blue;
+        }
+        td {
+            border: 1px dotted red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let mealWidget = document.getElementById("fav-meal");
+            let langWidget = document.getElementById("fav-prog-lang");
+            let colorWidget = document.getElementById("fav-color");
+
+            if (sessionStorage.getItem("meal")) {             
+                mealWidget.textContent = sessionStorage.getItem("meal");
+            }
+
+            if (sessionStorage.getItem("progLang")) {             
+                langWidget.textContent = sessionStorage.getItem("progLang");
+            }
+
+            if (sessionStorage.getItem("color")) {             
+                colorWidget.textContent = sessionStorage.getItem("color");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Submission Results Page</h1>
+    <table>
+        <tr>
+            <th>Favorite Meal</th>
+            <th>Favorite Programming Language</th>
+            <th>Favorite Color</th>
+        </tr>
+        <tr>
+            <td id="fav-meal"></td>
+            <td id="fav-prog-lang"></td>
+            <td id="fav-color"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

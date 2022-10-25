@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-21 Participation</title>
+    <style>
+        legend {
+            padding: 10px;
+        }
+        fieldset {
+            border-width: 5px;
+            border-style: dashed;
+            border-color: aquamarine;
+            padding: 10px;
+            margin: 8px;
+        }
+        form {
+            padding: 20px;
+            margin: 15px;
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let mealWidget = document.getElementById("meal");
+            let langWidget = document.getElementById("progLang");
+            let colorWidget = document.getElementById("color");
+            let mealSaved = 0;
+            let langSaved = 0;
+            let colorSaved = 0;
+
+            // checking input validation
+            document.getElementById("meal-button").addEventListener("click", () => {
+                let mealCheck = mealWidget.value;
+                if (mealCheck.length <= 0) {
+                    mealSaved = 0;
+                    alert("Can not be empty")
+                }
+                else {
+                    sessionStorage.setItem("meal", mealWidget.value);
+                    document.getElementById("meal-button").style.color = "red";
+                    mealSaved = 1;
+                }
+            });
+            
+            // "unsaves"
+            document.getElementById("meal").addEventListener("keydown", () => {
+                document.getElementById("meal-button").style.color = "black";
+                mealSaved = 0;
+            });
+
+            document.getElementById("prog-lang-button").addEventListener("click", () => {
+                let langCheck = langWidget.value;
+                if (langCheck.length <= 0) {
+                    langSaved = 0;
+                    alert("Can not be empty")
+                }
+                else {
+                    sessionStorage.setItem("progLang", langWidget.value);
+                    document.getElementById("prog-lang-button").style.color = "red";
+                    langSaved = 1;
+                }
+            });
+
+            // "unsaves"
+            document.getElementById("progLang").addEventListener("keydown", () => {
+                document.getElementById("prog-lang-button").style.color = "black";
+                langSaved = 0;
+            });
+            
+            document.getElementById("color-button").addEventListener("click", () => {
+                let colorCheck = colorWidget.value;
+                if (colorCheck.length <= 0) {
+                    colorSaved = 0;
+                    alert("Can not be empty")
+                }
+                else {
+                    sessionStorage.setItem("color", colorWidget.value);
+                    document.getElementById("color-button").style.color = "red";
+                    colorSaved = 1;
+                }
+            });
+
+            // "unsaves"
+            document.getElementById("color").addEventListener("keydown", () => {
+                document.getElementById("color-button").style.color = "black";
+                colorSaved = 0;
+            });
+
+            let formWidget = document.getElementById("submission");
+            formWidget.addEventListener("submit", function(event) {
+                var dataSaved = mealSaved + langSaved + colorSaved;
+                if (dataSaved != 3) {
+                    event.preventDefault();
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <a href="/CPSC332/">Back to the index</a>
+    <fieldset>
+        <legend>CPSC 332 10/21 Participation</legend>
+        <form id="submission" action="submission.html" method="POST">
+            <p>
+                <label for="meal">Favorite meal:</label>
+                <input type="text" name="meal" id="meal">
+                <button type="button" name="meal-button" id="meal-button">Save</button>
+            </p>
+            <p>
+                <label for="progLang">Favorite programming language:</label>
+                <input type="text" name="progLang" id="progLang">
+                <button type="button" name="prog-lang-button" id="prog-lang-button">Save</button>
+            </p>
+            <p>
+                <label for="color">Favorite color:</label>
+                <input type="text" name="color" id="color">
+                <button type="button" name="color-button" id="color-button">Save</button>
+            </p>
+            <p>
+                <input type="submit" value="Submit Response">
+            </p>
+        </form>
+    </fieldset>
+</body>
+</html>
